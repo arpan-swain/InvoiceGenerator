@@ -46,6 +46,21 @@ for filepath in filepaths:
         pdf.cell(w=30, h=10, txt=str(row["price_per_unit"]), ln=0,border =1)
         pdf.cell(w=30, h=10, txt=str(row["total_price"]), ln=1,border =1)
 
+    total_sum = df["total_price"].sum()
+    pdf.cell(w=30, h=10, txt="", ln=0, border=1)
+    pdf.cell(w=70, h=10, txt="", ln=0, border=1)
+    pdf.cell(w=35, h=10, txt="", ln=0, border=1)
+    pdf.cell(w=30, h=10, txt="", ln=0, border=1)
+    pdf.cell(w=30, h=10, txt=str(total_sum), ln=1, border=1)
+
+    pdf.ln(5)
+
+    pdf.set_font(family="Times", style="B", size=15)
+    pdf.set_text_color(0,0,0)
+    pdf.cell(w=0, h=12, txt=f"Your total Bill is : {total_sum}", ln=1, align="l")
+    pdf.set_font(family="Times", style="B", size=12)
+    pdf.cell(w=50, h=12, txt=f"The Pokemon Company", ln=0, align="l")
+    pdf.image("image.png",w=10)
 
 
 
